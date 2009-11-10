@@ -1,10 +1,11 @@
 #!/usr/bin/python
-# output directory
-output_dir = "/tmp/"
+
+usage_example = "%prog --output-dir=/tmp/path/example"
 
 # mod_autoindex generated HTML containing builds:
 index_url = "http://ftp.mozilla.org/pub/mozilla.org/firefox/nightly/latest-trunk/"
 
+from optparse import OptionParser
 import os
 import urllib2
 import simplejson as json
@@ -109,20 +110,27 @@ def buildHTML(builds):
 
     return header + middle + footer
 
-def writeOutput(filename, text):
+def writeOutput(output_dir, filename, text):
     f = open(os.path.join(output_dir, filename), 'w')
     f.write(text)
     f.close()
 
 def main():
+    optparser = OptionParser(usage=usage_example)
+    optparser.add_option("--output-dir", action="store", dest="output_path",
+                         help="[Required] specify the output directory")
+    (options, args) = optparser.parse_args()
+    if options.output_path is None:
+        optparser.error("You must specify --output-dir")
+
     f = urllib2.urlopen(index_url)
     parser = URLLister()
     parser.feed(f.read())
     f.close()
     parser.close()
 
-    writeOutput("index.html", buildHTML(parser.builds))
-    writeOutput("index.json", buildJSON(parser.builds))
+    writeOutput(options.output_path, "index.html", buildHTML(parser.builds))
+    writeOutput(options.output_path, "index.json", buildJSON(parser.builds))
 
 if __name__ == '__main__':
     main()
