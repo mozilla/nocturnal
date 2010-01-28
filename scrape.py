@@ -7,9 +7,12 @@ index_url = "http://ftp.mozilla.org/pub/mozilla.org/firefox/nightly/latest-trunk
 
 from optparse import OptionParser
 import os
-import urllib2
-import simplejson as json
 from sgmllib import SGMLParser
+import shutil
+import simplejson as json
+import urllib2
+
+path_to_this_script = os.path.realpath(__file__)
 
 class BuildDisplay():
     def __init__(self, suffix, extension, name, css_class):
@@ -79,18 +82,21 @@ def buildHTML(builds):
 <html>
       <head>
         <title>Firefox Nightly Builds</title>
-        <style>
-          li { margin-bottom: 1em; }
-        </style>
+        <link rel="stylesheet" type="text/css" href="http://www.mozilla.com/style/tignish/template.css" />
+        <link rel="stylesheet" type="text/css" href="http://www.mozilla.com/style/tignish/content.css" />
+        <link rel="stylesheet" type="text/css" href="nightly.css" />
       </head>
       <body>
-        <h1>Firefox Nightly Builds</h1>
+        <div id="main-feature">
+          <h1>Firefox Nightly Builds</h1>
+          <p>These builds are for testing purposes only.</p>
+        </div>
         <ul>\n"""
     
     footer = """
         </ul>
         
-        There's <a href="http://ftp.mozilla.org/pub/mozilla.org/firefox/nightly/latest-trunk">more stuff</a> if you don't see what you're looking for.
+        <p>We have <a href="http://ftp.mozilla.org/pub/mozilla.org/firefox/nightly/latest-trunk">more stuff</a> if you don't see what you're looking for.</p>
 
       </body>
 </html>"""
@@ -115,6 +121,10 @@ def writeOutput(output_dir, filename, text):
     f.write(text)
     f.close()
 
+def copyFile(output_dir, fileName):
+    resource_path = os.path.split(path_to_this_script)[0]
+    shutil.copyfile(os.path.join(resource_path, fileName), os.path.join(output_dir, fileName))
+
 def main():
     optparser = OptionParser(usage=usage_example)
     optparser.add_option("--output-dir", action="store", dest="output_path",
@@ -131,6 +141,8 @@ def main():
 
     writeOutput(options.output_path, "index.html", buildHTML(parser.builds))
     writeOutput(options.output_path, "index.json", buildJSON(parser.builds))
+    copyFile(options.output_path, "firefox.png")
+    copyFile(options.output_path, "nightly.css")
 
 if __name__ == '__main__':
     main()
