@@ -95,8 +95,11 @@ def buildHTML(builds):
     
     footer = """
         </ul>
-        
+                
         <p>We have <a href="http://ftp.mozilla.org/pub/mozilla.org/firefox/nightly/latest-trunk">more stuff</a> if you don't see what you're looking for.</p>
+
+        <p>Oh, and here are the <a href="http://nightly.mozilla.org/webm">WebM builds</a>.</p>
+
 
       </body>
 </html>"""
@@ -125,6 +128,10 @@ def copyFile(output_dir, fileName):
     resource_path = os.path.split(path_to_this_script)[0]
     shutil.copyfile(os.path.join(resource_path, fileName), os.path.join(output_dir, fileName))
 
+def copyFileWithName(inputFile, output_dir, fileName):
+    resource_path = os.path.split(path_to_this_script)[0]
+    shutil.copyfile(os.path.join(resource_path, inputFile), os.path.join(output_dir, fileName))
+
 def main():
     optparser = OptionParser(usage=usage_example)
     optparser.add_option("--output-dir", action="store", dest="output_path",
@@ -143,6 +150,10 @@ def main():
     writeOutput(options.output_path, "index.json", buildJSON(parser.builds))
     copyFile(options.output_path, "firefox.png")
     copyFile(options.output_path, "nightly.css")
+    webm_dir = os.path.join(options.output_path, "webm")
+    if not os.path.exists(webm_dir):
+        os.mkdir(webm_dir)
+    copyFileWithName("webm.html", webm_dir, "index.html")
 
 if __name__ == '__main__':
     main()
