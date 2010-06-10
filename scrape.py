@@ -98,9 +98,6 @@ def buildHTML(builds):
                 
         <p>We have <a href="http://ftp.mozilla.org/pub/mozilla.org/firefox/nightly/latest-trunk">more stuff</a> if you don't see what you're looking for.</p>
 
-        <p>Oh, and here are the <a href="http://nightly.mozilla.org/webm">WebM builds</a>.</p>
-
-
       </body>
 </html>"""
     
