@@ -23,7 +23,7 @@ class BuildDisplay():
 
 files_wanted = [
 #               (suffix,          extension, name,                 css_class)
-    BuildDisplay(".win32",        "zip",     "Windows",            "windows zip"),
+    BuildDisplay(".win32.installer",        "exe",     "Windows",            "windows exe"),
     BuildDisplay(".mac",          "dmg",     "Mac",                "mac dmg"),
     BuildDisplay(".linux-i686",   "tar.bz2", "Linux Intel",        "linux bz2"),
     BuildDisplay(".linux-x86_64", "tar.bz2", "Linux 64-bit Intel", "linux bz2 x64")
