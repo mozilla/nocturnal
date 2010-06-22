@@ -22,11 +22,13 @@ class BuildDisplay():
         self.css_class = css_class
 
 files_wanted = [
-#               (suffix,          extension, name,                 css_class)
-    BuildDisplay(".win32.installer",        "exe",     "Windows",            "windows exe"),
-    BuildDisplay(".mac",          "dmg",     "Mac",                "mac dmg"),
-    BuildDisplay(".linux-i686",   "tar.bz2", "Linux Intel",        "linux bz2"),
-    BuildDisplay(".linux-x86_64", "tar.bz2", "Linux 64-bit Intel", "linux bz2 x64")
+#               (suffix,                    extension, name,                  css_class)
+    BuildDisplay(".win32.installer",        "exe",     "Windows",             "windows exe"),
+    BuildDisplay(".win64-x86_64.installer", "exe",     "Windows 64-bit",      "windows exe x64"),
+    BuildDisplay(".mac",                    "dmg",     "Mac",                 "mac dmg"),
+    BuildDisplay(".mac64",                  "dmg",     "Mac 64-bit for 10.6", "mac dmg x64"),
+    BuildDisplay(".linux-i686",             "tar.bz2", "Linux Intel",         "linux bz2"),
+    BuildDisplay(".linux-x86_64",           "tar.bz2", "Linux 64-bit Intel",  "linux bz2 x64")
 ]
 
 wanted_keys = tuple([f.suffix + "." + f.extension for f in files_wanted])

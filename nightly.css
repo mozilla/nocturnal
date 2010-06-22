@@ -17,6 +17,10 @@ body {
     background: url(http://www.mozilla.com/img/tignish/template/background-feature.jpg) 50% -145px no-repeat;
 }
 
+ul {
+    width: 500px !important;
+}
+
 ul,p,#main-feature {
     width: 900px;
     text-align: left;
