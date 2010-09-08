@@ -3,8 +3,15 @@
 usage_example = "%prog --output-dir=/tmp/path/example"
 
 # mod_autoindex generated HTML containing builds:
-index_url = "http://ftp.mozilla.org/pub/mozilla.org/firefox/nightly/latest-trunk/"
-parse_url = "http://ftp.mozilla.org/pub/mozilla.org/firefox/nightly/latest-trunk/?C=M;O=D"
+apache_query_string = "?C=M;O=D"
+build_pages = [
+    {"url":"http://ftp.mozilla.org/pub/mozilla.org/firefox/nightly/latest-trunk/",
+     "title": "Firefox Nightly Builds",
+     "html": "index.html"},
+    {"url":"http://ftp.mozilla.org/pub/mozilla.org/firefox/nightly/latest-tracemonkey/",
+     "title": "Firefox JS Preview Builds",
+     "html": "js-preview.html"}
+]
 
 from optparse import OptionParser
 import os
@@ -36,7 +43,7 @@ wanted_keys = tuple([f.suffix + "." + f.extension for f in files_wanted])
 
 def build(url, files_wanted):
     d = {}
-    d['url'] = index_url + url
+    d['url'] = url
     d['date'] = ""
     d['size'] = ""
     for f in files_wanted:
@@ -48,6 +55,10 @@ def build(url, files_wanted):
             return d
 
 class URLLister(SGMLParser):
+    def __init__(self, parse_url):
+        SGMLParser.__init__(self)
+        self.parse_url = parse_url
+
     def reset(self):
         SGMLParser.reset(self)
         self.builds = []
@@ -60,7 +71,7 @@ class URLLister(SGMLParser):
         text = self.textData.strip()
 
         if (self.textData.endswith(wanted_keys)):
-            self.builds.append(build(text, files_wanted))
+            self.builds.append(build(self.parse_url + text, files_wanted))
             return
 
         if (len(self.builds) > 0):
@@ -78,7 +89,7 @@ def buildJSON(recent_builds):
         output.append(build)
     return json.dumps(output, indent=0)
 
-def buildHTML(recent_builds):
+def buildHTML(recent_builds, parse_url, title):
     header = """<!DOCTYPE html>
 <html>
       <head>
@@ -89,10 +100,10 @@ def buildHTML(recent_builds):
       </head>
       <body>
         <div id="main-feature">
-          <h1>Firefox Nightly Builds</h1>
+          <h1>%s</h1>
           <p>These builds are for testing purposes only.</p>
         </div>
-        <ul>\n"""
+        <ul>\n""" % title
     
     footer = """
         </ul>
@@ -138,6 +149,19 @@ def getRecentBuilds(builds):
     items.sort()
     return [value for key, value in items]
 
+def generateBuildPages(output_path, parse_url, dest_page, title):
+    f = urllib2.urlopen(parse_url + apache_query_string)
+    parser = URLLister(parse_url)
+    parser.feed(f.read())
+    f.close()
+    parser.close()
+
+    # get most recent file per platform
+    recent_builds = getRecentBuilds(parser.builds)
+
+    writeOutput(output_path, dest_page, buildHTML(recent_builds, parse_url, title))
+    writeOutput(output_path, dest_page[:dest_page.find(".html")] + ".json", buildJSON(recent_builds))
+
 def main():
     optparser = OptionParser(usage=usage_example)
     optparser.add_option("--output-dir", action="store", dest="output_path",
@@ -146,23 +170,11 @@ def main():
     if options.output_path is None:
         optparser.error("You must specify --output-dir")
 
-    f = urllib2.urlopen(parse_url)
-    parser = URLLister()
-    parser.feed(f.read())
-    f.close()
-    parser.close()
+    for page in build_pages:
+        generateBuildPages(options.output_path, page["url"], page["html"], page["title"])
 
-    # get most recent file per platform
-    recent_builds = getRecentBuilds(parser.builds)
-
-    writeOutput(options.output_path, "index.html", buildHTML(recent_builds))
-    writeOutput(options.output_path, "index.json", buildJSON(recent_builds))
     copyFile(options.output_path, "firefox.png")
     copyFile(options.output_path, "nightly.css")
-    webm_dir = os.path.join(options.output_path, "webm")
-    if not os.path.exists(webm_dir):
-        os.mkdir(webm_dir)
-    copyFileWithName("webm.html", webm_dir, "index.html")
 
 if __name__ == '__main__':
     main()
