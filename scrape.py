@@ -34,7 +34,7 @@ files_wanted = [
     BuildDisplay(".win32.installer",        "exe",     "Windows",             "windows exe"),
     BuildDisplay(".win64-x86_64.installer", "exe",     "Windows 64-bit",      "windows exe x64"),
     BuildDisplay(".mac",                    "dmg",     "Mac",                 "mac dmg"),
-    BuildDisplay(".mac64",                  "dmg",     "Mac 64-bit for 10.6", "mac dmg x64"),
+    BuildDisplay(".mac64",                  "dmg",     "Mac 32/64-bit Universal", "mac dmg x64"),
     BuildDisplay(".linux-i686",             "tar.bz2", "Linux Intel",         "linux bz2"),
     BuildDisplay(".linux-x86_64",           "tar.bz2", "Linux 64-bit Intel",  "linux bz2 x64")
 ]
