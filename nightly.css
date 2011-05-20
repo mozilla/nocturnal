@@ -1,32 +1,38 @@
 h1 {
     font-size: 360%;
-    color: #fff;
-    margin: 20px 0 0 0;
+    color: #333;
+    margin: 0;
 }
 
 li {
     margin-bottom: 1em;
 }
 
-html {
-    background: url(http://www.mozilla.com/img/tignish/template/background-tile.png) repeat-x 50% -145px #fff;
-}
-
 body {
+    font-family: Georgia, serif;
     padding: 20px;
-    background: url(http://www.mozilla.com/img/tignish/template/background-feature.jpg) 50% -145px no-repeat;
+    background: url(blueGradient.png) top left repeat-x;
+    color: #333333;
 }
 
-ul {
-    width: 500px !important;
+#builds {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    width: 800px;
 }
 
 ul,p,#main-feature {
-    width: 900px;
+    width: 800px;
     text-align: left;
     margin-left: auto;
     margin-right: auto;
     left: 0;
+}
+
+ul,p {
+    margin-left: 125px;
+    width: auto;
 }
 
 p {
@@ -42,8 +48,8 @@ ul li {
 }
 
 ul li a {
-     font-weight: bold;
-    font-family: verdana, sans-serif;
+    font-weight: bold;
+    font-family: Georgia, serif;
     background-position: 0 50%;
     background-repeat: no-repeat;
     display: block;
@@ -53,7 +59,7 @@ ul li a {
 
 ul li small {display: block;
     font-size: 65%;
-    font-family: verdana, sans-serif;
+    font-family: Georgia, serif;
     margin-top: 3px;
 }
 
@@ -70,8 +76,8 @@ ul li.linux   a {
 }
 
 #main-feature {
-    padding: 0;
-    background: url(firefox.png) 0 0 no-repeat;
+    padding: 5px 0 0 5px;
+    background: url(nightly.png) 0 0 no-repeat;
 }
 
 #main-feature p {

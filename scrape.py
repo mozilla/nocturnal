@@ -34,7 +34,6 @@ files_wanted = [
     BuildDisplay(".win32.installer",        "exe",     "Windows",             "windows exe"),
     BuildDisplay(".win64-x86_64.installer", "exe",     "Windows 64-bit",      "windows exe x64"),
     BuildDisplay(".mac",                    "dmg",     "Mac",                 "mac dmg"),
-    BuildDisplay(".mac64",                  "dmg",     "Mac 32/64-bit Universal", "mac dmg x64"),
     BuildDisplay(".linux-i686",             "tar.bz2", "Linux Intel",         "linux bz2"),
     BuildDisplay(".linux-x86_64",           "tar.bz2", "Linux 64-bit Intel",  "linux bz2 x64")
 ]
@@ -94,7 +93,6 @@ def buildHTML(recent_builds, parse_url, title):
 <html>
       <head>
         <title>Firefox Nightly Builds</title>
-        <link rel="stylesheet" type="text/css" href="http://www.mozilla.com/style/tignish/template.css" />
         <link rel="stylesheet" type="text/css" href="http://www.mozilla.com/style/tignish/content.css" />
         <link rel="stylesheet" type="text/css" href="nightly.css" />
       </head>
@@ -103,23 +101,29 @@ def buildHTML(recent_builds, parse_url, title):
           <h1>%s</h1>
           <p>These builds are for testing purposes only.</p>
         </div>
-        <ul>\n""" % title
+        <div id="builds">
+          <ul>\n""" % title
     
     footer = """
-        </ul>
+          </ul>
                 
-        <p>We have <a href="%s">more stuff</a> if you don't see what you're looking for.</p>
-
+          <p>We have <a href="%s">more stuff</a> if you don't see what you're looking for.</p>
+        </div>
       </body>
 </html>""" % parse_url
     
+    extension = ""
     middle = ""
     for build in recent_builds:
-        middle += '\n<li class="' + build['css_class'] + '">\n'
+        middle += '\n<li class="' + build['css_class'] + '"'
+        if build['extension'] != extension:
+            middle += 'style="clear: both;"'
+            extension = build['extension']
+        middle += '>\n'
         middle += '<a href="' + build['url'] + '">'
         middle += build['name']
         middle += '</a>'
-        middle += ' ' + build['size'] + 'B'
+        middle += '' + build['size'] + 'B'
         middle += '  ' + build['extension']
         middle += '<br>\n'
         middle += '<small>Built on ' + build['date'] + '</small>\n'
@@ -145,8 +149,11 @@ def getRecentBuilds(builds):
         for build in builds:
             if build['url'].endswith(f.suffix + "." + f.extension) and f.css_class not in recent_builds_dict:
                 recent_builds_dict[f.css_class] = build
-    items = recent_builds_dict.items()
-    items.sort()
+    items = []        
+    for f in files_wanted:
+        if recent_builds_dict.has_key(f.css_class):
+            items.append((f.css_class, recent_builds_dict[f.css_class]))
+    
     return [value for key, value in items]
 
 def generateBuildPages(output_path, parse_url, dest_page, title):
@@ -173,7 +180,8 @@ def main():
     for page in build_pages:
         generateBuildPages(options.output_path, page["url"], page["html"], page["title"])
 
-    copyFile(options.output_path, "firefox.png")
+    copyFile(options.output_path, "nightly.png")
+    copyFile(options.output_path, "blueGradient.png")
     copyFile(options.output_path, "nightly.css")
 
 if __name__ == '__main__':
