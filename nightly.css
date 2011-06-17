@@ -57,7 +57,8 @@ ul li a {
     margin-bottom: 5px;
 }
 
-ul li small {display: block;
+ul li small {
+    display: block;
     font-size: 65%;
     font-family: Georgia, serif;
     margin-top: 3px;
@@ -75,6 +76,14 @@ ul li.linux   a {
     background-image:url(http://www.mozilla.com/img/ico-tux.png);
 }
 
+ul li.android a {
+    background-image:url(android.png);
+}
+
+ul li.maemo   a {
+    background-image:url(maemo.png);
+}
+
 #main-feature {
     padding: 5px 0 0 5px;
     background: url(nightly.png) 0 0 no-repeat;
@@ -89,4 +98,40 @@ ul li.linux   a {
 #main-feature p, #main-feature h1 {
     margin-left: 120px;
     width: auto;
+}
+
+h3 {
+    clear: both;
+    padding-left: 100px;
+}
+
+ul li.header {
+    clear: both;
+    float: none;
+    max-width: 420px;
+    padding: 0;
+}
+
+.header h3 {
+    padding-left: 0;
+}
+
+#other-builds {
+    padding-left: 125px;
+}
+
+#more-urls li {
+    clear: both;
+    font-size: 14px;
+    font-weight: normal;
+    max-width: 700px;
+    padding: 0;
+}
+
+#more-urls li a {
+    padding-left: 5px;
+}
+
+#ftp {
+    padding-top: 0;
 }
