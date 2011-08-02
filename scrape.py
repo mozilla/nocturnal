@@ -74,7 +74,7 @@ PAGES = [
                 'extension': "apk",
                 'header': "Mobile (for Devices)",
                 'name': 'Android',
-                'suffix': '.multi.eabi-arm',
+                'suffix': '.multi.android-arm',
                 'url': 'latest-mozilla-central-android/',
             },
             {
