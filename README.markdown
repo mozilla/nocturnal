@@ -35,14 +35,16 @@ This software is licensed under the [Mozilla Tri-License][MPL]:
     for the specific language governing rights and limitations under the
     License.
 
-    The Original Code is Firefox Input.
+    The Original Code is Nocturnal.
 
     The Initial Developer of the Original Code is Mozilla.
-    Portions created by the Initial Developer are Copyright (C) 2010
+    Portions created by the Initial Developer are Copyright (C) 2009
     the Initial Developer. All Rights Reserved.
 
     Contributor(s):
-      Frederic Wenzel <fwenzel@mozilla.com>
+      Rob Sayre <sayrer@gmail.com>
+      Gavin Sharp
+      Matthew Riley MacPherson <tofumatt@mozilla.com>
 
     Alternatively, the contents of this file may be used under the terms of
     either the GNU General Public License Version 2 or later (the "GPL"), or
