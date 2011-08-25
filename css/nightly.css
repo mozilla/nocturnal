@@ -293,3 +293,49 @@ body {
     font-size: 13px;
     text-shadow: #000 1px 1px 1px;
 }
+
+#nightly-links {
+    margin: 0 auto 150px;
+    width: 900px;
+}
+
+#nightly-links section {
+    float: left;
+    margin: 0 30px 0 0;
+    width: 195px;
+}
+
+#nightly-links h3 {
+    color: #fff;
+    font: 22px 'MuseoSans500', sans-serif;
+    margin: 0 0 5px;
+}
+
+#nightly-links ul {
+    margin: 0;
+    padding: 0;
+}
+
+#nightly-links li {
+    list-style: none;
+}
+
+#nightly-links a {
+    color: #86a1d5;
+    font: 13px Georgia, Times, serif;
+    line-height: 19px;
+    text-decoration: none;
+    -moz-transition: 0.2s linear;
+    -moz-transition-property: text-shadow;
+    -webkit-transition: 0.2s linear;
+    -webkit-transition-property: text-shadow;
+    -o-transition: 0.2s linear;
+    -o-transition-property: text-shadow;
+    transition: 0.2s linear;
+    transition-property: text-shadow;
+}
+
+#nightly-links a:hover {
+    text-decoration: underline;
+    text-shadow: #404040 1px 1px 1px;
+}
