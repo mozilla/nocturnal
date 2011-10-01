@@ -15,7 +15,7 @@ import jinja2
 
 
 # mod_autoindex generated HTML containing builds:
-APACHE_QUERY_STRING = '?C=M;O=D'
+APACHE_QUERY_STRING = '?C=M;O=A'
 
 CURRENT_PATH = os.path.dirname(__file__)
 
