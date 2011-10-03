@@ -211,6 +211,9 @@ def main():
     """Function run when script is run from the command line."""
     template = ENV.get_template('index.html')
 
+    if not os.path.exists(OUTPUT_PATH):
+        os.makedirs(OUTPUT_PATH)
+
     for group in files:
         for build in group['builds']:
             f = urllib2.urlopen(group['base_url'] + build['url'] +
@@ -231,8 +234,10 @@ def main():
                      buildJSON(group['builds']))
 
     for folder in ['css', 'fonts', 'img', 'js']:
-        shutil.copytree(os.path.join(CURRENT_PATH, folder),
-                        os.path.join(CURRENT_PATH, OUTPUT_PATH, folder))
+        folder_path = os.path.join(CURRENT_PATH, OUTPUT_PATH, folder)
+        if os.path.exists(folder_path):
+            shutil.rmtree(folder_path)
+        shutil.copytree(os.path.join(CURRENT_PATH, folder), folder_path)
 
     write_output(OUTPUT_PATH, 'index.html', template.render({'files': files}))
 

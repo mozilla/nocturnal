@@ -15,9 +15,6 @@ server.
 
     ./scrape.py --output-dir html
 
-You can use `rebuild.sh` to automatically remove the `html` directory
-and rebuild the site if you're developing.
-
 License
 -------
 This software is licensed under the [Mozilla Tri-License][MPL]:
