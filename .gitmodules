@@ -1,0 +1,3 @@
+[submodule "vendor/django-moz-header"]
+	path = vendor/django-moz-header
+	url = git@github.com:mozilla/django-moz-header.git
