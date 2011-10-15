@@ -1,16 +1,4 @@
 @font-face {
-    font-family: 'MetaWeb-Medium';
-    src: local('☺'), url('../fonts/MetaWebPro-Medium.woff') format('woff');
-    font-weight: bold;
-}
-
-@font-face {
-    font-family: 'MetaWeb-Normal';
-    src: local('☺'), url('../fonts/MetaWebPro-Normal.woff') format('woff');
-    font-weight: normal;
-}
-
-@font-face {
     font-family: 'MuseoSans500';
     src: url('../fonts/MuseoSans_500-webfont.eot');
     src: url('../fonts/MuseoSans_500-webfont.eot?iefix') format('eot'),
@@ -37,6 +25,20 @@ body {
     background: rgba(0, 0, 0, .95);
 }
 
+#header {
+    background: none;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    height: 57px;
+    margin: 0 10px;
+}
+
+#header:after {
+    content: "";
+    display: none;
+}
+
 #header h1 a,
 #header h1 a:link,
 #header h1 a:visited {
@@ -45,6 +47,7 @@ body {
 
 #header a.mozilla {
     background: url(../img/nightly-title.png) 100% 0 no-repeat;
+    text-indent: -9999px;
 }
 
 #nav-main li a,
@@ -142,7 +145,7 @@ body {
 }
 
 #main-content {
-    background: url(../img/nightly-content-bg.png) top center no-repeat;
+    background: url(../img/nightly-content-bg.png) 50% -40px no-repeat;
     color: #fff;
     margin: 0 auto;
     padding: 0 20px;
@@ -160,28 +163,10 @@ body {
 }
 
 #nightly-title h1, #nightly-title h2 {
+    left: -9999px;
     margin: 0;
-}
-
-#nightly-title h1 {
-    color: #fff;
-    font: normal 48px 'MetaWeb-Normal', MetaBold, sans-serif;
-}
-
-#nightly-title h1 span {
-    font-family: 'MetaWeb-Medium', MetaBold, sans-serif;
-    font-weight: bold;
-}
-
-#nightly-title sup {
-    font: normal 10px 'MetaWeb-Normal', MetaBold, sans-serif;
-    position: relative;
-    top: -5px;
-}
-
-#nightly-title h2 {
-    color: #a5dcff;
-    font: normal 18px Georgia, Times, serif;
+    position: absolute;
+    top: 0;
 }
 
 #builds {

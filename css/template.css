@@ -74,8 +74,8 @@ body {
     transition: background 0.2s ease-in-out;
 }
 
-#footer h3 a:hover,
-#footer h3 a:active {
+#footer-logo a:hover,
+#footer-logo a:active {
     background: -moz-radial-gradient(center 45deg, ellipse closest-side, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 100%),
         url(../img/template/header-logos.png) 15px 0 no-repeat;
     -moz-transition: background 0.2s ease-in-out;
@@ -521,9 +521,9 @@ body {
     text-align: right;
 }
 
-#footer h3 a,
-#footer h3 a:link,
-#footer h3 a:visited {
+#footer-logo a,
+#footer-logo a:link,
+#footer-logo a:visited {
     display: block;
     height: 40px;
     width: 100px;
@@ -571,7 +571,7 @@ body {
 #footer-menu li a:visited,
 #lang_form label {
     color: #fff;
-    font: bold 14px MetaBlack, Trechuchet MS, sans-serif;
+    font: bold 14px MetaBlack, 'MetaWeb-Medium', Trechuchet MS, sans-serif;
     text-transform: uppercase;
 }
 
@@ -597,9 +597,10 @@ body {
 
 #footer-menu ul ul li {
     float: none;
+    line-height: .8em;
     padding: 0 0 .3em 0;
     margin: 0;
-    font-weight: normal;
+    font-weight: bold;
     display: block;
     width: auto;
 }
@@ -633,9 +634,9 @@ body {
 
 #copyright p {
     clear: both;
-    margin-bottom: .5em;
-    padding-top: .5em;
-    font-size: 85%;
+    font-size: 11px;
+    line-height: 16px;
+    margin: 0 0 6px;
 }
 
 #copyright a:hover,

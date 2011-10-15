@@ -2,15 +2,20 @@
 
 import os
 import shutil
-import simplejson as json
 import sys
 import urllib2
 from optparse import OptionParser
 from sgmllib import SGMLParser
 
-# Use our local copy of jinja2
+
+# Use our local copies of simplejson and jinja2
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)),
-                                'jinja2'))
+                                'vendor'))
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                                'vendor', 'jinja2'))
+
+
+import simplejson as json
 import jinja2
 
 
@@ -19,8 +24,10 @@ APACHE_QUERY_STRING = '?C=M;O=A'
 
 CURRENT_PATH = os.path.dirname(__file__)
 
-ENV = jinja2.Environment(loader=jinja2.FileSystemLoader(
-                         os.path.join(CURRENT_PATH, 'templates')),
+ENV = jinja2.Environment(loader=jinja2.FileSystemLoader([
+                                os.path.join(CURRENT_PATH, 'templates'),
+                                os.path.join(CURRENT_PATH, 'vendor',
+                                             'django-moz-header')]),
                          extensions=['jinja2.ext.i18n'])
 # We use django-moz-header, so we need to stub out the gettext functionality
 # in those templates.
@@ -238,6 +245,34 @@ def main():
         if os.path.exists(folder_path):
             shutil.rmtree(folder_path)
         shutil.copytree(os.path.join(CURRENT_PATH, folder), folder_path)
+
+    # Copy resources from Django-moz-header
+    django_moz_header = os.path.join(CURRENT_PATH, 'vendor',
+                                     'django-moz-header')
+    for f in os.listdir(django_moz_header):
+        if f.endswith('.css'):
+            if os.path.exists(os.path.join(CURRENT_PATH, OUTPUT_PATH,
+                                           'css', f)):
+                os.remove(os.path.join(CURRENT_PATH, OUTPUT_PATH, 'css', f))
+
+            shutil.copyfile(os.path.join(django_moz_header, f),
+                            os.path.join(CURRENT_PATH, OUTPUT_PATH, 'css', f))
+        elif f.endswith('.js'):
+            if os.path.exists(os.path.join(CURRENT_PATH, OUTPUT_PATH,
+                                           'js', f)):
+                os.remove(os.path.join(CURRENT_PATH, OUTPUT_PATH, 'js', f))
+
+
+            shutil.copyfile(os.path.join(django_moz_header, f),
+                            os.path.join(CURRENT_PATH, OUTPUT_PATH, 'js', f))
+        elif f.endswith('.png'):
+            if os.path.exists(os.path.join(CURRENT_PATH, OUTPUT_PATH,
+                                           'img', f)):
+                os.remove(os.path.join(CURRENT_PATH, OUTPUT_PATH, 'img', f))
+
+            shutil.copyfile(os.path.join(django_moz_header, f),
+                            os.path.join(CURRENT_PATH, OUTPUT_PATH, 'img', f))
+
 
     write_output(OUTPUT_PATH, 'index.html', template.render({'files': files}))
 
