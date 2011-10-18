@@ -3,6 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=1024">
+  <meta name="og:image"
+        content="http://mozcom-cdn.mozilla.net/img/firefox-100.jpg">
   <title>Firefox Nightly Builds</title>
 
   <style>
@@ -17,6 +19,8 @@
 
   <link rel="stylesheet" media="screen,projection,tv" href="css/template.css">
   <link rel="stylesheet" media="screen,projection,tv" href="css/nightly.css">
+  <link rel="icon" type="image/png" href="img/favicon.png">
+  <!--[if IE]><link rel="shortcut icon" href="img/favicon.ico"><![endif]-->
 </head>
 <body>
 
@@ -136,8 +140,6 @@
         <span class="intro">{{ _('Want us to keep in touch?') }}</span>
         <a href="http://www.mozilla.com/newsletter/">{{ _('Get Monthly News <span>&raquo;</span>') }}</a>
       </p>
-
-      {# include "newsletter.html" #}
     {% endblock %}
   </div>
 </div>

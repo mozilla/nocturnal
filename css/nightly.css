@@ -31,7 +31,8 @@ body {
     border-radius: 0;
     box-shadow: none;
     height: 57px;
-    margin: 0 10px;
+    margin: 0 auto;
+    width: 970px;
 }
 
 #header:after {
@@ -43,6 +44,8 @@ body {
 #header h1 a:link,
 #header h1 a:visited {
     background: url(../img/nightly-title.png) 0 0 no-repeat;
+    height: 68px;
+    width: 171px;
 }
 
 #header a.mozilla {
@@ -155,11 +158,12 @@ body {
 }
 
 #nightly-title {
-    background: url(../img/nightly-header-bg.png) 0 -40px no-repeat;
+    background: url(../img/nightly-header-bg.png) -55px -40px no-repeat;
     display: block;
     height: 145px;
-    padding: 100px 0 35px 210px;
-    width: 754px;
+    margin: 0 auto;
+    padding: 100px 0 55px;
+    width: 970px;
 }
 
 #nightly-title h1, #nightly-title h2 {
