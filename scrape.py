@@ -95,7 +95,7 @@ files = [
                 'extension': 'apk',
                 'name': 'Android',
                 'suffix': '.multi.android-arm',
-                'url': 'latest-mozilla-central-android/',
+                'url': 'latest-birch-android/',
             },
             {
                 'class': 'maemo',
