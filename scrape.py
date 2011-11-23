@@ -94,7 +94,7 @@ files = [
                 'class': 'android',
                 'extension': 'apk',
                 'name': 'Android',
-                'suffix': '.multi.android-arm',
+                'suffix': '.android-arm',
                 'url': 'latest-birch-android/',
             },
             {
