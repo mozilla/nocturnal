@@ -87,7 +87,11 @@ files = [
     # Mobile (trunk)
     {
         'name': 'Mobile',
-        'subtitle': 'For trunk (mozilla-central)',
+        # Removing this as we now point to both (birch for android and
+        # mozilla-central for the rest). Commenting it out because we'll likely
+        # re-add when we ship completely off mozilla-central again (due in
+        # a week or so)
+        # 'subtitle': 'For trunk (mozilla-central)',
         'base_url': 'http://ftp.mozilla.org/pub/mozilla.org/mobile/nightly/',
         'builds': [
             {
