@@ -98,20 +98,6 @@ files = [
                 'url': 'latest-mozilla-central-android/',
             },
             {
-                'class': 'maemo',
-                'extension': 'tar.bz2',
-                'name': 'Maemo GTK',
-                'suffix': '.multi.linux-gnueabi-arm',
-                'url': 'latest-mozilla-central-maemo5-gtk/',
-            },
-            {
-                'class': 'maemo',
-                'extension': 'tar.bz2',
-                'name': 'Maemo QT',
-                'suffix': '.multi.linux-gnueabi-arm',
-                'url': 'latest-mozilla-central-maemo5-qt/',
-            },
-            {
                 'class': 'windows zip',
                 'extension': 'zip',
                 'name': 'Windows',
