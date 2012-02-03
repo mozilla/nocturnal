@@ -97,27 +97,6 @@ files = [
                 'suffix': '.android-arm',
                 'url': 'latest-mozilla-central-android/',
             },
-            {
-                'class': 'windows zip',
-                'extension': 'zip',
-                'name': 'Windows',
-                'suffix': '.win32',
-                'url': 'latest-mozilla-central-win32/',
-            },
-            {
-                'class': 'mac',
-                'extension': 'dmg',
-                'name': 'Mac',
-                'suffix': '.mac',
-                'url': 'latest-mozilla-central-macosx/',
-            },
-            {
-                'class': 'linux',
-                'extension': 'tar.bz2',
-                'name': 'Linux (Intel)',
-                'suffix': '.linux-i686',
-                'url': 'latest-mozilla-central-linux/',
-            },
         ],
     },
 ]
