@@ -55,13 +55,6 @@ files = [
                 'url': 'firefox/nightly/latest-trunk/',
             },
             {
-                'class': 'windows',
-                'extension': 'exe',
-                'name': 'Windows 64-bit',
-                'suffix': '.win64-x86_64.installer',
-                'url': 'firefox/nightly/latest-trunk/',
-            },
-            {
                 'class': 'mac',
                 'extension': 'dmg',
                 'name': 'Mac',
