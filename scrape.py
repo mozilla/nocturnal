@@ -88,7 +88,7 @@ files = [
                 'extension': 'apk',
                 'name': 'Android',
                 'suffix': '.android-arm',
-                'url': 'latest-mozilla-central-android/',
+                'url': 'latest-mozilla-central-android/en-US/',
             },
         ],
     },
