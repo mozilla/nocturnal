@@ -90,6 +90,13 @@ files = [
                 'suffix': '.android-arm',
                 'url': 'latest-mozilla-central-android/en-US/',
             },
+            {
+                'class': 'android',
+                'extension': 'apk',
+                'name': 'Android (ARMv6)',
+                'suffix': '.android-arm-armv6',
+                'url': 'latest-mozilla-central-android-armv6/',
+            }
         ],
     },
 ]
@@ -220,7 +227,6 @@ def main():
                                            'js', f)):
                 os.remove(os.path.join(CURRENT_PATH, OUTPUT_PATH, 'js', f))
 
-
             shutil.copyfile(os.path.join(django_moz_header, f),
                             os.path.join(CURRENT_PATH, OUTPUT_PATH, 'js', f))
         elif f.endswith('.png'):
@@ -230,7 +236,6 @@ def main():
 
             shutil.copyfile(os.path.join(django_moz_header, f),
                             os.path.join(CURRENT_PATH, OUTPUT_PATH, 'img', f))
-
 
     write_output(OUTPUT_PATH, 'index.html', template.render({'files': files}))
 
