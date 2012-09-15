@@ -87,14 +87,14 @@ files = [
                 'class': 'android',
                 'extension': 'apk',
                 'name': 'Android',
-                'suffix': '.android-arm',
+                'suffix': '.multi.android-arm',
                 'url': 'latest-mozilla-central-android/en-US/',
             },
             {
                 'class': 'android',
                 'extension': 'apk',
                 'name': 'Android (ARMv6)',
-                'suffix': '.android-arm-armv6',
+                'suffix': '.multi.android-arm-armv6',
                 'url': 'latest-mozilla-central-android-armv6/',
             }
         ],
