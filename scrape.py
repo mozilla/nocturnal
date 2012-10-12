@@ -51,6 +51,13 @@ files = [
                 'class': 'windows',
                 'extension': 'exe',
                 'name': 'Windows',
+                'suffix': '.win32.installer-stub',
+                'url': 'firefox/nightly/latest-trunk/',
+            },
+            {
+                'class': 'windows',
+                'extension': 'exe',
+                'name': 'Windows (Classic)',
                 'suffix': '.win32.installer',
                 'url': 'firefox/nightly/latest-trunk/',
             },
