@@ -174,7 +174,7 @@ body {
 }
 
 #builds {
-    margin: -50px auto 50px;
+    margin: -50px auto 20px;
     width: 900px;
 }
 
@@ -281,6 +281,24 @@ body {
     display: block;
     font-size: 13px;
     text-shadow: #000 1px 1px 1px;
+}
+
+#warning {
+    margin: 0 auto 30px;
+    width: 900px;
+    font-style: italic;
+    color: #888;
+    font-size: 13px;
+}
+
+#warning a {
+    color: #86a1d5;
+    text-decoration: none;
+}
+
+#warning a:hover,
+#warning a:active {
+    text-decoration: underline;
 }
 
 #nightly-links {
