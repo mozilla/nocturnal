@@ -158,11 +158,10 @@ body {
 }
 
 #nightly-title {
-    background: url(../img/nightly-header-bg.png) -55px -40px no-repeat;
+    background: url(../img/nightly-header-bg.png) -55px -60px no-repeat;
     display: block;
-    height: 145px;
     margin: 0 auto;
-    padding: 100px 0 55px;
+    padding: 190px 0 55px;
     width: 970px;
 }
 
@@ -171,6 +170,12 @@ body {
     margin: 0;
     position: absolute;
     top: 0;
+}
+
+#nightly-title p {
+    margin-left: 155px;
+    margin-right: 60px;
+    font: 13px/19px Georgia,Times,serif;
 }
 
 #builds {
