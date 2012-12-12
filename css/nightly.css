@@ -297,7 +297,8 @@ body {
 }
 
 #warning a:hover,
-#warning a:active {
+#warning a:active,
+#warning a:focus {
     text-decoration: underline;
 }
 
@@ -342,7 +343,9 @@ body {
     transition-property: text-shadow;
 }
 
-#nightly-links a:hover {
+#nightly-links a:active,
+#nightly-links a:hover,
+#nightly-links a:focus {
     text-decoration: underline;
     text-shadow: #404040 1px 1px 1px;
 }
