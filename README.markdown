@@ -7,6 +7,12 @@ This repo contains all the resources to build all Nightly pages.
 You'll need to run the scraper script from a machine with an Internet
 connection.
 
+## Setup ##
+
+Make sure you grab all the submodules.
+
+    git clone --recursive https://github.com/mozilla/nocturnal.git
+
 ## Usage ##
 
 Specify an output directory (it shouldn't be the same directory as the
