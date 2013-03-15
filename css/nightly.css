@@ -349,3 +349,26 @@ body {
     text-decoration: underline;
     text-shadow: #404040 1px 1px 1px;
 }
+
+@media (max-width:960px) {
+    #nightly-title, #nightly-links, #builds, #sub-footer #sub-footer-contents,
+    .build-group h3, .build-group ul  {
+        width: auto;
+    }
+
+    #nightly-title {
+        background: url(../img/nightly-header-bg.png) -65px -75px no-repeat;
+        padding: 65px 0 55px;
+    }
+
+    .build-group h3, .build-group ul {
+        float: none;
+        overflow: auto;
+    }
+
+    .build-group h3 {
+        height: auto !important;
+        margin-right: 0;
+        margin-bottom: 2px;
+    }
+}
