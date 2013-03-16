@@ -182,7 +182,7 @@ def buildJSON(builds):
 def write_output(output_dir, filename, text):
     """Helper function that writes a string out to a file."""
     f = open(os.path.join(output_dir, filename), 'w')
-    f.write(text)
+    f.write(text.encode('utf-8'))
     f.close()
 
 
@@ -195,6 +195,11 @@ def main():
 
     for group in files:
         for build in group['builds']:
+            if 'date' in build and 'link' in build and 'size' in build:
+                # If these values have already been populated,
+                # lets not make another network call to override them.
+                continue
+
             f = urllib2.urlopen(group['base_url'] + build['url'] +
                                 APACHE_QUERY_STRING)
             parser = URLLister(group['base_url'] + build['url'], build['name'],
