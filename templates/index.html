@@ -154,6 +154,15 @@
 <script src="js/jquery-1.4.4.js"></script>
 <script src="js/nav-main.js"></script>
 <script src="js/nightly.js"></script>
+<script>
+$(window).resize(function(){
+  if ($(window).width() <= 800){  
+    $('#Mobile').insertBefore('#Desktop');
+  } else if ($(window).width() > 800) {
+    $('#Desktop').insertBefore('#Mobile');
+  }
+});
+</script>
 
 </body>
 </html>
