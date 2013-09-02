@@ -1,16 +1,42 @@
-@font-face {
-    font-family: 'MuseoSans500';
-    src: url('../fonts/MuseoSans_500-webfont.eot');
-    src: url('../fonts/MuseoSans_500-webfont.eot?iefix') format('eot'),
-         url('../fonts/MuseoSans_500-webfont.woff') format('woff'),
-         url('../fonts/MuseoSans_500-webfont.ttf') format('truetype'),
-         url('../fonts/MuseoSans_500-webfont.svg#webfontkQkWxTED') format('svg');
-    font-weight: normal;
-    font-style: normal;
+h1, h2, h3, h4, small, .large {
+    line-height: 100%;
+}
+
+.large {
+    font-size: 72px;
+    letter-spacing: -3px;
+}
+
+h1 {
+    font-size: 48px;
+    letter-spacing: -2px;
+}
+
+h2 {
+    font-size: 32px;
+    letter-spacing: -1px;
+}
+
+h3 {
+    font-size: 28px;
+    letter-spacing: -0.5px;
+}
+
+h4 {
+    font-size: 24px;
+    letter-spacing: -0.25px;
 }
 
 body {
-    background: #000 url(../img/nightly-bg.png) 50% 0 repeat-x;
+    text-align: center;
+    font-family: 'Open Sans Light', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 ::selection {
@@ -25,130 +51,17 @@ body {
     background: rgba(0, 0, 0, .95);
 }
 
-#header {
-    background: none;
-    border: 0;
-    border-radius: 0;
-    box-shadow: none;
-    height: 57px;
-    margin: 0 auto;
-    width: 970px;
-}
-
-#header:after {
-    content: "";
-    display: none;
-}
-
-#header h1 a,
-#header h1 a:link,
-#header h1 a:visited {
-    background: url(../img/nightly-title.png) 0 0 no-repeat;
-    height: 68px;
-    width: 171px;
-}
-
-#header a.mozilla {
-    background: url(../img/nightly-title.png) 100% 0 no-repeat;
-    text-indent: -9999px;
-}
-
-#nav-main li a,
-#nav-main li a:link,
-#nav-main li a:visited,
-#nav-main li span {
-    border-color: #3a3c46;
-    color: #fff;
-}
-
-#nav-main li.last a,
-#nav-main li.last span {
-    border-right-color: transparent;
-}
-
-#nav-main li.last a:hover,
-#nav-main li.last a:focus,
-#nav-main li.last a:active,
-.js #nav-main li.last a:focus,
-#nav-main li.hover a {
-    border-right-color: #3a3c46;
-}
-
-#nav-main li a:hover,
-#nav-main li:hover a,
-#nav-main li.hover a,
-#nav-main li.hover a:link,
-#nav-main li.hover a:visited {
-    box-shadow:
-        rgba(41,48,54,0.2) 0 0px 0px,
-        inset rgba(0,0,0,0.8) 0 -6px 20px 10px;
-    -moz-box-shadow:
-        rgba(41,48,54,0.2) 0 0px 0px,
-        inset rgba(0,0,0,0.8) 0 -6px 20px 10px;
-    -webkit-box-shadow:
-        rgba(41,48,54,0.2) 0 0px 0px,
-        inset rgba(0,0,0,0.8) 0 -6px 20px 10px;
-    background: #000;
-    background: rgba(0,0,0,0);
-}
-
-#nav-main ul ul {
-    border: 1px solid #3a3c46;
-    text-shadow: 1px 1px 0 #000, 0 0 5px #000;
-    background: #000;
-    background: rgba(0,0,0,0.9);
-    box-shadow:
-        rgba(41,48,54,0.2) 0 2px 0px,
-        inset rgba(41,48,54,0.3) 0 -2px 0;
-    -moz-box-shadow:
-        rgba(41,48,54,0.2) 0 2px 0px,
-        inset rgba(41,48,54,0.3) 0 -2px 0;
-    -webkit-box-shadow:
-        rgba(41,48,54,0.2) 0 2px 0px,
-        inset rgba(41,48,54,0.3) 0 -2px 0;
-}
-
-#nav-main ul ul li {
-    box-shadow:
-        inset rgba(41,48,54,0.2) 0 -1px 0 0;
-    -moz-box-shadow:
-        inset rgba(41,48,54,0.2) 0 -1px 0 0;
-    -webkit-box-shadow:
-        inset rgba(41,48,54,0.2) 0 -1px 0 0;
-}
-
-#nav-main ul ul a:hover,
-#nav-main ul ul a:focus,
-#nav-main ul ul a:active,
-.js #nav-main ul ul a:focus,
-#nav-main ul li.current ul li a:hover,
-#nav-main ul li.current ul li a:focus,
-#nav-main ul li.current ul li a:active,
-.js #nav-main ul li.current ul li a:focus {
-    background: rgb(227,235,244);
-    background: rgba(41,48,54,0.2);
-    box-shadow:
-        inset rgba(41,48,54,0.3) 0 2px 0px,
-        0 0 3px 2px rgba(41,48,54,.2) inset;
-    -moz-box-shadow:
-        inset rgba(41,48,54,0.3) 0 2px 0px,
-        0 0 3px 2px rgba(41,48,54,.2) inset;
-    -webkit-box-shadow:
-        inset rgba(41,48,54,0.3) 0 2px 0px,
-        0 0 3px 2px rgba(41,48,54,.2) inset;
-}
-
-#sub-footer {
-    background: transparent url(../img/nightly-footer-bg.png) center -134px repeat-x;
-}
-
 /** Actual Nightly Styles */
 .clear {
     clear: both;
 }
 
 #main-content {
-    background: url(../img/nightly-content-bg.png) 50% -40px no-repeat;
+    position: relative;
+    border-top: 2px solid rgb(255, 255, 255);
+    background: url(../img/nightly-content-bg.png) 50% -40px no-repeat, -webkit-linear-gradient(top, #002147, #000);
+    background: url(../img/nightly-content-bg.png) 50% -40px no-repeat, -moz-linear-gradient(top, #002147, #000);
+    background: url(../img/nightly-content-bg.png) 50% -40px no-repeat, linear-gradient(to bottom, #002147, #000);
     color: #fff;
     margin: 0 auto;
     padding: 0 20px;
@@ -189,7 +102,6 @@ body {
     -moz-box-shadow: inset 1px 1px 8px 1px #1b335b;
     box-shadow: inset 1px 1px 8px 1px #1b335b;
     float: left;
-    font: normal 20px 'MuseoSans500', sans-serif;
     margin: 0;
     padding: 20px 30px;
 }
@@ -202,7 +114,8 @@ body {
 .build-group h3 small {
     color: #dcac2c;
     display: block;
-    font: italic 14px Georgia, Times, sans-serif;
+    font-size: 14px;
+    font-style: italic;
     width: 115px;
 }
 
@@ -309,13 +222,13 @@ body {
 
 #nightly-links section {
     float: left;
-    margin: 0 30px 0 0;
+    margin: 0 30px 30px 0;
     width: 195px;
 }
 
 #nightly-links h3 {
     color: #fff;
-    font: 22px 'MuseoSans500', sans-serif;
+    font-size: 22px;
     margin: 0 0 5px;
 }
 
@@ -330,7 +243,7 @@ body {
 
 #nightly-links a {
     color: #86a1d5;
-    font: 13px Georgia, Times, serif;
+    font-size: 13px;
     line-height: 19px;
     text-decoration: none;
     -moz-transition: 0.2s linear;
@@ -348,4 +261,44 @@ body {
 #nightly-links a:focus {
     text-decoration: underline;
     text-shadow: #404040 1px 1px 1px;
+}
+
+@media only screen and (max-width: 960px) {
+    #nightly-title, #nightly-links, #builds, #sub-footer #sub-footer-contents,
+    .build-group h3, .build-group ul, #warning {
+        width: auto;
+    }
+
+    #nightly-title {
+        background: url(../img/nightly-header-bg.png) -65px -75px no-repeat;
+        padding: 65px 0 55px;
+    }
+
+    .build-group li {
+        width: 100%;
+    }
+
+    .build-group h3, .build-group ul {
+        float: none;
+        overflow: auto;
+    }
+
+    .build-group h3 {
+        /*
+        We need to use important here because .build-group h3 is normally set using element.style
+        in jQuery. https://github.com/mozilla/nocturnal/blob/master/js/nightly.js#L8
+
+        TODO: remove the js hack.
+        */
+        height: auto !important;
+        margin-right: 0;
+        margin-bottom: 2px;
+    }
+
+    #nightly-links {
+        text-align: center;
+    }
+    #nightly-links section {
+        width: 100%;
+    }
 }

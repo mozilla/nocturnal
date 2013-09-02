@@ -1,0 +1,32 @@
+{% for group in files %}
+  <div id="{{ group['name'] }}" class="build-group">
+    <h3>
+      {{ group['name'] }}
+      {% if group['subtitle'] %}
+        <small>{{ group['subtitle'] }}</small>
+      {% endif %}
+    </h3>
+
+    <ul>
+      {% set previous_build_name = '' %}
+
+      {% for build in group['builds'] %}
+        {% if build['link'] %}
+          <li class="{{ build['class'] }}
+            {{ 'first' if previous_build_name != build['class'] }}">
+            <a href="{{ build['link'] }}">
+              {{ build['name'] }}
+              <small>{{ build['size'] }}B | {{ build['extension'] }}</small>
+            </a>
+          </li>
+        {% else %}
+          <!-- Nothing available for {{ build['name'] }} -->
+        {% endif %}
+
+        {% set previous_build_name = build['class'] %}
+      {% endfor %}
+    </ul>
+
+    <div class="clear"></div>
+  </div>
+{% endfor %}
