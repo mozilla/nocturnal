@@ -7,4 +7,8 @@ $().ready(function() {
         });
         $(this).children('h3').height($(this).children('ul').height() - 20);
     });
+
+    $('#builds a').click(function() {
+        _gaq.push(['_trackEvent', 'Firefox Downloads', 'download click', 'Firefox Nightly']);
+    });
 });
