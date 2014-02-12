@@ -103,6 +103,14 @@ files = [
                 'name': 'Android (ARMv6)',
                 'suffix': '.multi.android-arm-armv6',
                 'url': 'latest-mozilla-central-android-armv6/',
+            },
+            {
+                'class': 'android',
+                'extension': 'apk',
+                'name': 'Android (x86)',
+                'suffix': '.multi.android-i386',
+                'url': 'latest-mozilla-central-android-x86/'
+
             }
         ],
     },
