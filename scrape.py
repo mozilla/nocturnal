@@ -1,9 +1,11 @@
 #!/usr/bin/env python
 
+import codecs
 import os
 import shutil
 import sys
 import urllib2
+
 from optparse import OptionParser
 from sgmllib import SGMLParser
 
@@ -189,9 +191,9 @@ def buildJSON(builds):
 
 def write_output(output_dir, filename, text):
     """Helper function that writes a string out to a file."""
-    f = open(os.path.join(output_dir, filename), 'w')
-    f.write(text)
-    f.close()
+    with codecs.open(os.path.join(output_dir, filename), 'w', 'utf-8') as f:
+        f.write(text)
+        f.close()
 
 
 def main():
