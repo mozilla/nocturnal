@@ -67,7 +67,7 @@
     {% endfor %}
   </div>
 
-  <p id="warning">Firefox Nightly automatically sends feedback to Mozilla. <a href="http://www.mozilla.org/legal/privacy/firefox.html#telemetry">Learn more.</a></p>
+  <p id="warning">Firefox Nightly automatically sends feedback to Mozilla. <a href="https://www.mozilla.org/legal/privacy/firefox.html#telemetry">Learn more.</a></p>
 
   <div id="nightly-links">
     <section>
@@ -105,10 +105,10 @@
       <h3>Other Resources</h3>
 
       <ul>
-        <li><a href="http://hg.mozilla.org/mozilla-central/pushloghtml?startdate=48+hours+ago&amp;enddate=now">Last 48 hours of check-ins</a></li>
+        <li><a href="https://hg.mozilla.org/mozilla-central/pushloghtml?startdate=48+hours+ago&amp;enddate=now">Last 48 hours of check-ins</a></li>
         <li><a
-          href="http://ftp.mozilla.org/pub/mozilla.org/firefox/nightly">Other Nightly Builds (FTP)</a></li>
-        <li><a href="http://www.squarefree.com/burningedge/">The Burning Edge blog</a></li>
+          href="https://ftp.mozilla.org/pub/mozilla.org/firefox/nightly">Other Nightly Builds (FTP)</a></li>
+        <li><a href="https://www.squarefree.com/burningedge/">The Burning Edge blog</a></li>
         <li><a href="http://forums.mozillazine.org/viewforum.php?f=23">Firefox Builds forum</a></li>
         <li><a href="https://wiki.mozilla.org/Releases">Release information</a></li>
         <li><a href="https://wiki.mozilla.org/Features/Release_Tracking">Firefox Flight Tracking</a></li>
@@ -126,20 +126,20 @@
     {% block sub_footer %}
       <h3>{{ _('Let&rsquo;s be <span>friends!</span>')|safe }}</h3>
       <ul class="social">
-        <li id="footer-twitter"><a href="http://twitter.com/firefox">
+        <li id="footer-twitter"><a href="https://twitter.com/firefox">
           {{ _('Twitter') }}
         </a></li>
-        <li id="footer-facebook"><a href="http://Facebook.com/Firefox">
+        <li id="footer-facebook"><a href="https://www.facebook.com/Firefox">
           {{ _('Facebook') }}
         </a></li>
-        <li id="footer-connect"><a href="http://www.mozilla.com/firefox/connect/">
+        <li id="footer-connect"><a href="https://www.mozilla.com/firefox/connect/">
           {{ _('More Ways to Connect') }}
         </a></li>
       </ul>
 
       <p id="sub-footer-newsletter">
         <span class="intro">{{ _('Want us to keep in touch?') }}</span>
-        <a href="http://www.mozilla.com/newsletter/">{{ _('Get Monthly News <span>&raquo;</span>') }}</a>
+        <a href="https://www.mozilla.com/newsletter/">{{ _('Get Monthly News <span>&raquo;</span>') }}</a>
       </p>
     {% endblock %}
   </div>
@@ -159,11 +159,12 @@
 
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-35433268-45']);
+  _gaq.push (['_gat._anonymizeIp']);
   _gaq.push(['_trackPageview']);
 
   (function() {
     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    ga.src = 'https://ssl.google-analytics.com/ga.js';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
 
