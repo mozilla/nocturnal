@@ -47,7 +47,7 @@ files = [
     # Desktop
     {
         'name': 'Desktop',
-        'base_url': 'http://ftp.mozilla.org/pub/mozilla.org/',
+        'base_url': 'https://ftp.mozilla.org/pub/mozilla.org/',
         'builds': [
             {
                 'class': 'windows',
@@ -90,7 +90,7 @@ files = [
     {
         'name': 'Mobile',
         # 'subtitle': 'For trunk (mozilla-central)',
-        'base_url': 'http://ftp.mozilla.org/pub/mozilla.org/mobile/nightly/',
+        'base_url': 'https://ftp.mozilla.org/pub/mozilla.org/mobile/nightly/',
         'builds': [
             {
                 'class': 'android',
@@ -120,7 +120,7 @@ files = [
     {
         'name': 'Desktop Boot2Gecko',
         # 'subtitle': 'For Gecko (mozilla-central), Gaia (master)',
-        'base_url': 'http://ftp.mozilla.org/pub/mozilla.org/b2g/nightly/',
+        'base_url': 'https://ftp.mozilla.org/pub/mozilla.org/b2g/nightly/',
         'builds': [
             {
                 'class': 'windows',
