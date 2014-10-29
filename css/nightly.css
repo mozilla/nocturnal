@@ -255,7 +255,7 @@ body {
     float: left;
     margin: 0 0 0 50px;
     min-height: 35px;
-    padding: 0 0 0 7px;
+    padding: 0 50px 0 7px;
     text-decoration: none;
     -moz-transition: 0.2s linear;
     -moz-transition-property: text-shadow;
@@ -265,7 +265,7 @@ body {
     -o-transition-property: text-shadow;
     transition: 0.2s linear;
     transition-property: text-shadow;
-    width: 255px;
+    width: 205px;
 }
 
 .build-group a:hover, .build-group a:focus {
