@@ -31,6 +31,8 @@ and running the deploy script.
 The `scrape.py` command is run (every hour I believe) on the server, but to
 update the site from git you'll need to file this bug.
 
+An example bug is here: https://bugzilla.mozilla.org/show_bug.cgi?id=1096271
+
 [Bugzilla]: https://bugzilla.mozilla.org/enter_bug.cgi?product=mozilla.org
 [nightly](https://nightly.mozilla.org/)
 
