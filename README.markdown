@@ -1,7 +1,7 @@
 # Nocturnal #
 
 Nocturnal is a simple Python scraper script that crawls Mozilla's Nightly
-FTP folders to build [nightly.mozilla.org](http://nightly.mozilla.org).
+FTP folders to build [nightly.mozilla.org][nightly].
 This repo contains all the resources to build all Nightly pages.
 
 You'll need to run the scraper script from a machine with an Internet
@@ -20,6 +20,19 @@ repo) and allow a few seconds for the script to scrape Mozilla's FTP
 server.
 
     ./scrape.py --output-dir html
+
+## Deploy ##
+
+To deploy nocturnal to [nightly.mozilla.org][nightly], you'll need to file
+a bug in [Bugzilla][] under "Server Operations". Simply ask to deploy the
+latest version of nightly.mozilla.org by pulling the new version from git
+and running the deploy script.
+
+The `scrape.py` command is run (every hour I believe) on the server, but to
+update the site from git you'll need to file this bug.
+
+[Bugzilla]: https://bugzilla.mozilla.org/enter_bug.cgi?product=mozilla.org
+[nightly](https://nightly.mozilla.org/)
 
 License
 -------
