@@ -216,9 +216,10 @@ body {
     border-bottom: 1px dotted #24375b;
     display: inline;
     float: left;
-    height: 60px;
+    min-height: 40px;
     list-style: none;
     margin: 0 0 25px;
+    padding-bottom: 10px;
 }
 
 .build-group li {
@@ -250,7 +251,7 @@ body {
 }
 
 .build-group a {
-    background: url(../img/icon-arrow.png) right 50% no-repeat;
+    background: url(../img/icon-arrow.png) right 5px no-repeat;
     color: #fff;
     float: left;
     margin: 0 0 0 50px;
