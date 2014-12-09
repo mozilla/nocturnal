@@ -7,4 +7,13 @@ $().ready(function() {
         });
         $(this).children('h3').height($(this).children('ul').height() - 20);
     });
+
+    // Place the link to download mobile version higher on smaller screens
+    $(window).resize(function(){
+      if ($(window).width() <= 800){
+        $('#Mobile').insertBefore('#Desktop');
+      } else if ($(window).width() > 800) {
+        $('#Desktop').insertBefore('#Mobile');
+      }
+    });
 });
