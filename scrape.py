@@ -102,16 +102,16 @@ files = [
             {
                 'class': 'android',
                 'extension': 'apk',
-                'name': 'Android',
+                'name': 'Android (ARMv7, 2.3 Gingerbread)',
                 'suffix': '.multi.android-arm',
-                'url': 'latest-mozilla-central-android/',
+                'url': 'latest-mozilla-central-android-api-9/',
             },
             {
                 'class': 'android',
                 'extension': 'apk',
-                'name': 'Android (ARMv6)',
-                'suffix': '.multi.android-arm-armv6',
-                'url': 'latest-mozilla-central-android-armv6/',
+                'name': 'Android (ARMv7, 3.0 Honeycomb and above)',
+                'suffix': '.multi.android-arm',
+                'url': 'latest-mozilla-central-android-api-11/',
             },
             {
                 'class': 'android',
