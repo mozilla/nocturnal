@@ -67,7 +67,7 @@ files = [
                 'class': 'windows',
                 'extension': 'exe',
                 'name': 'Windows 64-bit (Standard)',
-                'suffix': '.win64-x86_64.installer',
+                'suffix': '.win64.installer',
                 'url': 'firefox/nightly/latest-trunk/',
             },
             {
