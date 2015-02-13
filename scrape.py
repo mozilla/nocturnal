@@ -297,6 +297,10 @@ def main():
             shutil.copyfile(os.path.join(django_moz_header, f),
                             os.path.join(CURRENT_PATH, OUTPUT_PATH, 'img', f))
 
+    # Copy contribute.json
+    shutil.copyfile(os.path.join(CURRENT_PATH, 'contribute.json'),
+                    os.path.join(CURRENT_PATH, OUTPUT_PATH, 'contribute.json'))
+
     write_output(OUTPUT_PATH, 'index.html', template.render({'files': files}))
 
 
