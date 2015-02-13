@@ -1,0 +1,29 @@
+{
+    "name": "Nocturnal",
+    "description": "Builds nightly.mozilla.org",
+    "repository": {
+        "url": "https://github.com/mozilla/nocturnal",
+        "license": "MPL1.1",
+        "clone": "https://github.com/mozilla/nocturnal.git"
+    },
+    "participate": {
+        "home": "https://github.com/mozilla/nocturnal",
+        "docs": "https://github.com/mozilla/nocturnal/blob/master/README.markdown",
+        "mailing-list": "https://www.mozilla.org/about/forums/#dev-mozilla-org",
+        "irc": "irc://irc.mozilla.org/#webdev",
+        "irc-contacts": [
+            "tofumatt"
+        ]
+    },
+    "bugs": {
+        "list": "https://bugzilla.mozilla.org/buglist.cgi?list_id=12004351&short_desc=nocturnal%20nightly.mozilla.org&query_format=advanced&short_desc_type=anywordssubstr&component=other.mozilla.org&product=Websites",
+        "report": "https://bugzilla.mozilla.org/enter_bug.cgi?product=Websites&component=other.mozilla.org"
+    },
+    "urls": {
+        "prod": "https://nightly.mozilla.org"
+    },
+    "keywords": [
+        "python",
+        "scraper"
+    ]
+}
