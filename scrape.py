@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import codecs
+import datetime
 import os
 import shutil
 import sys
@@ -144,18 +145,11 @@ files = [
                 'url': 'latest-mozilla-central/',
             },
             {
-                'class': 'linux',
-                'extension': 'tar.bz2',
-                'name': 'Linux (Intel)',
-                'suffix': '.linux-i686',
-                'url': 'latest-mozilla-central/',
-            },
-            {
+                'scraper': 'taskcluster',
+                'namespace': 'buildbot.branches.mozilla-central.linux64_gecko',
                 'class': 'linux',
                 'extension': 'tar.bz2',
                 'name': 'Linux (Intel, 64-bit)',
-                'suffix': '.linux-x86_64',
-                'url': 'latest-mozilla-central/',
             }
         ]
     }
@@ -200,6 +194,50 @@ class URLLister(SGMLParser):
 
     def handle_data(self, text):
         self.textData += text
+
+
+class TaskclusterArtifact(object):
+    """Scrape the lastest build artifact for a taskcluster task."""
+
+    def __init__(self, namespace):
+        self.namespace = namespace
+        self.date = None
+        self.link = None
+        self.size = None
+
+    def scrape(self):
+        """Squeeze data out of taskcluster API."""
+        # Fetch namespace metadata.
+        f = urllib2.urlopen(
+            'https://index.taskcluster.net/v1/task/%s' % self.namespace)
+        ns_meta = json.loads(f.read())
+        f.close()
+
+        # Fetch task metadata.
+        f = urllib2.urlopen(
+            'https://queue.taskcluster.net/v1/task/%s' % ns_meta['taskId'])
+        task_meta = json.loads(f.read())
+        f.close()
+
+        # Transform date into FTP-style '07-May-2015'
+        created = datetime.datetime.strptime(task_meta['created'],
+                                             '%Y-%m-%dT%H:%M:%S.%fZ')
+        self.date = created.strftime('%d-%b-%Y')
+
+        # Assemble target URL.
+        self.link = (
+            'https://queue.taskcluster.net/v1/task/%s/artifacts/%s' % (
+                ns_meta['taskId'], task_meta['extra']['locations']['build']))
+
+        # Request target URL with a HEAD request, to find out the size.
+        req = urllib2.Request(self.link)
+        req.get_method = lambda: 'HEAD'
+        resp = urllib2.urlopen(req)
+        headers = resp.info()
+        resp.close()
+        # Normalize to FTP-style '123M'
+        self.size = '%sM' % (
+            int(headers.getheader('Content-Length')) / 1024 / 1024)
 
 
 def copy_file(output_dir, fileName):
@@ -248,13 +286,18 @@ def main():
 
     for group in files:
         for build in group['builds']:
-            f = urllib2.urlopen(group['base_url'] + build['url'] +
-                                APACHE_QUERY_STRING)
-            parser = URLLister(group['base_url'] + build['url'], build['name'],
-                               build)
-            parser.feed(f.read())
-            f.close()
-            parser.close()
+            if build.get('scraper') == 'taskcluster':
+                parser = TaskclusterArtifact(build['namespace'])
+                parser.scrape()
+
+            else:
+                f = urllib2.urlopen(group['base_url'] + build['url'] +
+                                    APACHE_QUERY_STRING)
+                parser = URLLister(group['base_url'] + build['url'], build['name'],
+                                   build)
+                parser.feed(f.read())
+                f.close()
+                parser.close()
 
             build['date'] = parser.date
             build['link'] = parser.link
