@@ -187,9 +187,9 @@ class URLLister(SGMLParser):
             return
 
         if (self.link):
-            if self.date == None:
+            if self.date is None and "-" in text:
                 self.date = text.split()[0]
-            elif self.size == None:
+            elif self.size is None:
                 self.size = text
 
     def handle_data(self, text):
