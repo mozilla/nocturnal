@@ -22,9 +22,6 @@ import simplejson as json
 import jinja2
 
 
-# mod_autoindex generated HTML containing builds:
-APACHE_QUERY_STRING = '?C=M;O=A'
-
 CURRENT_PATH = os.path.dirname(__file__)
 
 ENV = jinja2.Environment(loader=jinja2.FileSystemLoader([
@@ -48,49 +45,49 @@ files = [
     # Desktop
     {
         'name': 'Desktop',
-        'base_url': 'https://ftp.mozilla.org/pub/mozilla.org/',
+        'base_url': 'https://archive.mozilla.org/pub/',
         'builds': [
             {
                 'class': 'windows',
                 'extension': 'exe',
                 'name': 'Windows 32-bit (Express)',
                 'suffix': '.win32.installer-stub',
-                'url': 'firefox/nightly/latest-trunk/',
+                'url': 'firefox/nightly/latest-mozilla-central/',
             },
             {
                 'class': 'windows',
                 'extension': 'exe',
                 'name': 'Windows 32-bit (Standard)',
                 'suffix': '.win32.installer',
-                'url': 'firefox/nightly/latest-trunk/',
+                'url': 'firefox/nightly/latest-mozilla-central/',
             },
             {
                 'class': 'windows',
                 'extension': 'exe',
                 'name': 'Windows 64-bit (Standard)',
                 'suffix': '.win64.installer',
-                'url': 'firefox/nightly/latest-trunk/',
+                'url': 'firefox/nightly/latest-mozilla-central/',
             },
             {
                 'class': 'mac',
                 'extension': 'dmg',
                 'name': 'Mac',
                 'suffix': '.mac',
-                'url': 'firefox/nightly/latest-trunk/',
+                'url': 'firefox/nightly/latest-mozilla-central/',
             },
             {
                 'class': 'linux',
                 'extension': 'tar.bz2',
                 'name': 'Linux (Intel)',
                 'suffix': '.linux-i686',
-                'url': 'firefox/nightly/latest-trunk/',
+                'url': 'firefox/nightly/latest-mozilla-central/',
             },
             {
                 'class': 'linux',
                 'extension': 'tar.bz2',
                 'name': 'Linux (Intel, 64-bit)',
                 'suffix': '.linux-x86_64',
-                'url': 'firefox/nightly/latest-trunk/',
+                'url': 'firefox/nightly/latest-mozilla-central/',
             },
         ]
     },
@@ -98,7 +95,7 @@ files = [
     {
         'name': 'Mobile',
         # 'subtitle': 'For trunk (mozilla-central)',
-        'base_url': 'https://ftp.mozilla.org/pub/mozilla.org/mobile/nightly/',
+        'base_url': 'https://archive.mozilla.org/pub/mobile/nightly/',
         'builds': [
             {
                 'class': 'android',
@@ -128,7 +125,7 @@ files = [
     {
         'name': 'Desktop Boot2Gecko',
         # 'subtitle': 'For Gecko (mozilla-central), Gaia (master)',
-        'base_url': 'https://ftp.mozilla.org/pub/mozilla.org/b2g/nightly/',
+        'base_url': 'https://archive.mozilla.org/pub/b2g/nightly/',
         'builds': [
             {
                 'class': 'windows',
@@ -158,7 +155,7 @@ files = [
 
 class URLLister(SGMLParser):
     """
-    Extend SGML Parser to look through FTP listing pages on ftp.mozilla.org
+    Extend SGML Parser to look through FTP listing pages on archive.mozilla.org
     and get relevant file URLs, datestamps, and sizes.
     """
 
@@ -291,8 +288,7 @@ def main():
                 parser.scrape()
 
             else:
-                f = urllib2.urlopen(group['base_url'] + build['url'] +
-                                    APACHE_QUERY_STRING)
+                f = urllib2.urlopen(group['base_url'] + build['url'])
                 parser = URLLister(group['base_url'] + build['url'], build['name'],
                                    build)
                 parser.feed(f.read())
