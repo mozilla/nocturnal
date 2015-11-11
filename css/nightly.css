@@ -250,6 +250,10 @@ body {
     background-image: url(../img/icon-maemo.png);
 }
 
+.build-group li.b2gdroid.first {
+    background-image: url(../img/icon-b2gdroid.png);
+}
+
 .build-group a {
     background: url(../img/icon-arrow.png) right 5px no-repeat;
     color: #fff;

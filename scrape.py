@@ -91,9 +91,9 @@ files = [
             },
         ]
     },
-    # Mobile (trunk)
+    # Android (trunk)
     {
-        'name': 'Mobile',
+        'name': 'Android',
         # 'subtitle': 'For trunk (mozilla-central)',
         'base_url': 'https://archive.mozilla.org/pub/mobile/nightly/',
         'builds': [
@@ -120,6 +120,20 @@ files = [
 
             }
         ],
+    },
+    # B2GDroid
+    {
+        'name': 'Firefox OS',
+        'builds': [
+            {
+                'scraper': 'noscraper', # This file is not on FTP but on S3, so the data cannot be scraped
+                'class': 'b2gdroid',
+                'extension': 'apk',
+                'size': '100M', # Hardcode the approx. size
+                'name': 'Firefox OS 2.5 developer preview (Android app)',
+                'url': 'https://d2yw7jilxa8093.cloudfront.net/B2GDroid-mozilla-central-nightly-latest.apk',
+            },
+        ]
     },
     # Boot2Gecko desktop
     {
@@ -283,6 +297,11 @@ def main():
 
     for group in files:
         for build in group['builds']:
+            # Just use the specified data when the scraper cannot be used
+            if build.get('scraper') == 'noscraper':
+                build['link'] = build['url']
+                continue
+
             if build.get('scraper') == 'taskcluster':
                 parser = TaskclusterArtifact(build['namespace'])
                 parser.scrape()
