@@ -218,8 +218,8 @@ body {
     float: left;
     min-height: 40px;
     list-style: none;
-    margin: 0 0 25px;
-    padding-bottom: 10px;
+    margin: 0 0 15px;
+    padding-bottom: 15px;
 }
 
 .build-group li {
@@ -282,9 +282,15 @@ body {
     text-shadow: #5890ee 0 0 1px;
 }
 
+.build-group a span {
+    display: block;
+    font-size: 16px;
+}
+
 .build-group a small {
     color: #5890ee;
     display: block;
+    margin-top: 4px;
     font-size: 13px;
     text-shadow: #000 1px 1px 1px;
 }

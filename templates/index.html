@@ -51,6 +51,7 @@
                 {{ 'first' if previous_build_name != build['class'] }}">
                 <a href="{{ build['link'] }}">
                   {{ build['name'] }}
+                  {% if build['subname'] %}<span>({{ build['subname'] }})</span>{% endif %}
                   <small>{{ build['size'] }}B | {{ build['extension'] }}</small>
                 </a>
               </li>
