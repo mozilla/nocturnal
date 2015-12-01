@@ -100,21 +100,24 @@ files = [
             {
                 'class': 'android',
                 'extension': 'apk',
-                'name': 'Android (ARMv7, 2.3 Gingerbread)',
-                'suffix': '.multi.android-arm',
-                'url': 'latest-mozilla-central-android-api-9/',
-            },
-            {
-                'class': 'android',
-                'extension': 'apk',
-                'name': 'Android (ARMv7, 3.0 Honeycomb and above)',
+                'name': 'Modern devices',
+                'subname': 'Android 4.0+',
                 'suffix': '.multi.android-arm',
                 'url': 'latest-mozilla-central-android-api-11/',
             },
             {
                 'class': 'android',
                 'extension': 'apk',
-                'name': 'Android (x86)',
+                'name': 'Legacy devices',
+                'subname': 'Android 2.3',
+                'suffix': '.multi.android-arm',
+                'url': 'latest-mozilla-central-android-api-9/',
+            },
+            {
+                'class': 'android',
+                'extension': 'apk',
+                'name': 'Intel devices',
+                'subname': 'Android 4.0+ x86 CPU',
                 'suffix': '.multi.android-i386',
                 'url': 'latest-mozilla-central-android-x86/'
 
@@ -130,7 +133,8 @@ files = [
                 'class': 'b2gdroid',
                 'extension': 'apk',
                 'size': '100M', # Hardcode the approx. size
-                'name': 'Firefox OS 2.5 developer preview (Android app)',
+                'name': 'Firefox OS 2.5 developer preview',
+                'subname': 'Android app',
                 'url': 'https://d2yw7jilxa8093.cloudfront.net/B2GDroid-mozilla-central-nightly-latest.apk',
             },
         ]
