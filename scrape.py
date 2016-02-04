@@ -101,9 +101,9 @@ files = [
                 'class': 'android',
                 'extension': 'apk',
                 'name': 'Modern devices',
-                'subname': 'Android 4.0+',
+                'subname': 'Android 4.0.3+',
                 'suffix': '.multi.android-arm',
-                'url': 'latest-mozilla-central-android-api-11/',
+                'url': 'latest-mozilla-central-android-api-15/',
             },
             {
                 'class': 'android',
@@ -117,7 +117,7 @@ files = [
                 'class': 'android',
                 'extension': 'apk',
                 'name': 'Intel devices',
-                'subname': 'Android 4.0+ x86 CPU',
+                'subname': 'Android 4.0.3+ x86 CPU',
                 'suffix': '.multi.android-i386',
                 'url': 'latest-mozilla-central-android-x86/'
 
