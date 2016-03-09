@@ -100,18 +100,10 @@ files = [
             {
                 'class': 'android',
                 'extension': 'apk',
-                'name': 'Modern devices',
+                'name': 'ARM devices',
                 'subname': 'Android 4.0.3+',
                 'suffix': '.multi.android-arm',
                 'url': 'latest-mozilla-central-android-api-15/',
-            },
-            {
-                'class': 'android',
-                'extension': 'apk',
-                'name': 'Legacy devices',
-                'subname': 'Android 2.3',
-                'suffix': '.multi.android-arm',
-                'url': 'latest-mozilla-central-android-api-9/',
             },
             {
                 'class': 'android',
