@@ -72,6 +72,7 @@ files = [
                 'class': 'mac',
                 'extension': 'dmg',
                 'name': 'Mac',
+                'subname': 'OS X 10.9+',
                 'suffix': '.mac',
                 'url': 'firefox/nightly/latest-mozilla-central/',
             },
