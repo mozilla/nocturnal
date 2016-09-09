@@ -117,21 +117,6 @@ files = [
             }
         ],
     },
-    # B2GDroid
-    {
-        'name': 'Firefox OS',
-        'builds': [
-            {
-                'scraper': 'noscraper', # This file is not on FTP but on S3, so the data cannot be scraped
-                'class': 'b2gdroid',
-                'extension': 'apk',
-                'size': '100M', # Hardcode the approx. size
-                'name': 'Firefox OS 2.5 developer preview',
-                'subname': 'Android app',
-                'url': 'https://d2yw7jilxa8093.cloudfront.net/B2GDroid-mozilla-central-nightly-latest.apk',
-            },
-        ]
-    },
     # Boot2Gecko desktop
     {
         'name': 'Desktop Boot2Gecko',
