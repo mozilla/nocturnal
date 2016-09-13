@@ -117,35 +117,6 @@ files = [
             }
         ],
     },
-    # Boot2Gecko desktop
-    {
-        'name': 'Desktop Boot2Gecko',
-        # 'subtitle': 'For Gecko (mozilla-central), Gaia (master)',
-        'base_url': 'https://archive.mozilla.org/pub/b2g/nightly/',
-        'builds': [
-            {
-                'class': 'windows',
-                'extension': 'zip',
-                'name': 'Windows',
-                'suffix': '.win32',
-                'url': 'latest-mozilla-central/',
-            },
-            {
-                'class': 'mac',
-                'extension': 'dmg',
-                'name': 'Mac',
-                'suffix': '.mac64',
-                'url': 'latest-mozilla-central/',
-            },
-            {
-                'scraper': 'taskcluster',
-                'namespace': 'buildbot.branches.mozilla-central.linux64_gecko',
-                'class': 'linux',
-                'extension': 'tar.bz2',
-                'name': 'Linux (Intel, 64-bit)',
-            }
-        ]
-    }
 ]
 
 
