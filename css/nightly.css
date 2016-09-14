@@ -183,7 +183,7 @@ body {
     margin: 0 0 20px;
 }
 
-.build-group h3, .build-group ul {
+.build-group h3, .build-group .builds {
     background: rgba(133, 156, 228, .1);
     border: 1px solid #1b335b;
     -webkit-box-shadow: inset 1px 1px 8px 1px #1b335b;
@@ -207,9 +207,15 @@ body {
     width: 115px;
 }
 
-.build-group ul {
+.build-group .builds {
     padding-bottom: 0;
     width: 625px;
+}
+
+.build-group ul {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
 }
 
 .build-group li {
@@ -254,7 +260,7 @@ body {
     background-image: url(../img/icon-b2gdroid.png);
 }
 
-.build-group a {
+.build-group ul a {
     background: url(../img/icon-arrow.png) right 5px no-repeat;
     color: #fff;
     float: left;
@@ -273,26 +279,41 @@ body {
     width: 205px;
 }
 
-.build-group a:hover, .build-group a:focus {
+.build-group ul a:hover, .build-group ul a:focus {
     text-shadow: #5890ee 0 0 5px;
 }
 
-.build-group a:active {
+.build-group ul a:active {
     background: url(../img/icon-arrow.png) right 80% no-repeat;
     text-shadow: #5890ee 0 0 1px;
 }
 
-.build-group a span {
+.build-group ul a span {
     display: block;
     font-size: 16px;
 }
 
-.build-group a small {
+.build-group ul a small {
     color: #5890ee;
     display: block;
     margin-top: 4px;
     font-size: 13px;
     text-shadow: #000 1px 1px 1px;
+}
+
+.build-group .note {
+    margin: 0 0 20px;
+    font-size: 16px;
+}
+
+.build-group .note a {
+    color: #5890ee;
+}
+
+.build-group .note a:hover,
+.build-group .note a:active,
+.build-group .note a:focus {
+    text-decoration: underline;
 }
 
 #warning {

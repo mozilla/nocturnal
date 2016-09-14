@@ -90,7 +90,10 @@ files = [
                 'suffix': '.linux-x86_64',
                 'url': 'firefox/nightly/latest-mozilla-central/',
             },
-        ]
+        ],
+        'note': ('Firefox Nightly is also <a href="https://www.mozilla.org/'
+                 'firefox/nightly/all/">available in many other languages at '
+                 'mozilla.org</a>.'),
     },
     # Android (trunk)
     {
