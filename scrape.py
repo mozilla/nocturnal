@@ -107,7 +107,7 @@ files = [
                 'name': 'ARM devices',
                 'subname': 'Android 4.0.3+',
                 'suffix': '.multi.android-arm',
-                'url': 'latest-mozilla-central-android-api-15/',
+                'url': 'latest-mozilla-central-android-api-16/',
             },
             {
                 'class': 'android',
