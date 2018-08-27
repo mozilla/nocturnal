@@ -1,3 +1,9 @@
+# Decommissioned #
+
+This code is no longer used to generate nightly.mozilla.org. That domain has become a simple redirect to the [Firefox Nightly page on www.mozilla.org](https://www.mozilla.org/en-US/firefox/channel/desktop/#nightly). Please [file an issue on the bedrock project](https://github.com/mozilla/bedrock/issues/new) if you notice any problems or needed changes on that site.
+
+---
+
 # Nocturnal #
 
 Nocturnal is a simple Python scraper script that crawls Mozilla's Nightly
